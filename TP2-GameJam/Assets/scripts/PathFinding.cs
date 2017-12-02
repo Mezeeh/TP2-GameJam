@@ -9,7 +9,7 @@ public class PathFinding : MonoBehaviour
 	Grille grille;//notre objet grille qui va contenir notre grille de tuiles représentant notre monde
 	public Transform depart;//références aux gameObjects rajoutés directement en drag n drop dans l'éditeur de Unity.
 	public Transform arrivee;
-    public List<Noeud> Chemin;
+    public List<Noeud> chemin;
 
 	void Awake()
 	{//pour que ça marche, il faut que le script Grille soit rattaché au même GameObject que le script PathFinding

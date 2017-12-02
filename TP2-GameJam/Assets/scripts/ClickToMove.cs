@@ -9,6 +9,8 @@ public class ClickToMove : MonoBehaviour {
     
     private Vector3 positionCible;
     private bool enMouvement;
+	private PathFinding pathfinder;
+	private int i;
     
 
 	void Start () {
@@ -17,6 +19,8 @@ public class ClickToMove : MonoBehaviour {
 		positionCible = transform.position;
         
 		enMouvement = false;
+		pathfinder = new PathFinding ();
+
 	}
 	
 	// Update is called once per frame
@@ -35,10 +39,14 @@ public class ClickToMove : MonoBehaviour {
 
             positionCible = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 			positionCible.z = transform.position.z;
+			pathfinder.trouverChemin (transform.position, positionCible);
+			i = 0;
+
 		}
-		if (enMouvement)
-			transform.position = Vector3.MoveTowards (transform.position, positionCible, vitesse * Time.deltaTime);
-			
+		if (enMouvement) {
+			transform.position = Vector3.MoveTowards (transform.position, pathfinder.chemin [i].position, vitesse * Time.deltaTime);
+			i++;
+		}
 		if (positionCible == transform.position) 
 			enMouvement = false;
 
