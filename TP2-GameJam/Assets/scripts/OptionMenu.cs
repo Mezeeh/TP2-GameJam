@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class OptionMenu : MonoBehaviour {
 
+	public GameObject menuPrincipal,
+				menuCommentJouer,
+				menuTouches;
+
 	public void quitter()
 	{
 		Debug.Log ("Le jeu va se fermer!");
@@ -12,16 +16,27 @@ public class OptionMenu : MonoBehaviour {
 
 	public void commentJouer()
 	{
-		
+		menuCommentJouer.SetActive (true);
+		menuPrincipal.SetActive (false);
 	}
 
 	public void touches()
 	{
-		
+		menuTouches.SetActive (true);
+		menuPrincipal.SetActive (false);
 	}
 
 	public void jouer()
 	{
-		
+		menuPrincipal.SetActive (false);
+		menuCommentJouer.SetActive (false);
+		menuTouches.SetActive (false);
+	}
+
+	public void retour()
+	{
+		menuPrincipal.SetActive (true);
+		menuCommentJouer.SetActive (false);
+		menuTouches.SetActive (false);
 	}
 }
