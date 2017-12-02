@@ -24,7 +24,7 @@ public class Grille : MonoBehaviour
 	private int dimensionGrilleX, dimensionGrilleY; //dimensions de notre grille en X et Y.
 	public Transform player;
 	public List<Noeud> chemin; //notre chemin déterminé par l,algorithme A*.  Il est public car on va le remplir à partir d'un autre script
-
+	public bool activerGrille;
 	void Start()
 	{
 		diametreNoeud = rayonNoeud * 2;
@@ -109,38 +109,37 @@ public class Grille : MonoBehaviour
 /// <summary>
 /// Méthode qui va dessiner la grille avec les bonnes couleurs incluant le chemin s'il en existe un.
 /// </summary>
+	/// 
 	void OnDrawGizmos()
 	{
-		Gizmos.DrawWireCube (transform.position, new Vector3 (dimensionMonde.x, dimensionMonde.y, 1));
+		if (activerGrille) {
+			Gizmos.DrawWireCube (transform.position, new Vector3 (dimensionMonde.x, dimensionMonde.y, 1));
 
-		construireGrille ();//construction de la grille
-		//pour que ça marche, il faut que le script PathFinding soit rattaché au même GameObject que le script Grille
-		PathFinding pathFinding = GetComponent<PathFinding> (); 
+			construireGrille ();//construction de la grille
+			//pour que ça marche, il faut que le script PathFinding soit rattaché au même GameObject que le script Grille
+			PathFinding pathFinding = GetComponent<PathFinding> (); 
 
-		GameObject depart = GameObject.Find ("Player"); //trouve le joueur qui est le point de départ
-		GameObject arrivee = GameObject.Find ("arrivee"); //trouve l'arrivée
-		//on demande à la classe Pathfinding de trouver le chemin
-	//	pathFinding.trouverCheminGizmos (depart.transform.position, arrivee.transform.position, this);
+			GameObject depart = GameObject.Find ("Player"); //trouve le joueur qui est le point de départ
+			GameObject arrivee = GameObject.Find ("arrivee"); //trouve l'arrivée
+			//on demande à la classe Pathfinding de trouver le chemin
+			//	pathFinding.trouverCheminGizmos (depart.transform.position, arrivee.transform.position, this);
 
-		if (grille != null) //si la grille a bel et bien été créé
-		{
-			Noeud noeudPlayer = noeudVsPoint (player.position);
+			if (grille != null) { //si la grille a bel et bien été créé
+				Noeud noeudPlayer = noeudVsPoint (player.position);
 
-			foreach (Noeud n in grille) //pour tous les noeuds de la grille
-			{
-				if (n.walkable) //si le noeud est marchable
-				{
-					if (noeudPlayer == n) //si c'est le joueur
+				foreach (Noeud n in grille) { //pour tous les noeuds de la grille
+					if (n.walkable) { //si le noeud est marchable
+						if (noeudPlayer == n) //si c'est le joueur
 						Gizmos.color = Color.cyan;
-					//else if (chemin != null && chemin.Contains(n)) //si le noeud fait partie du chemin trouvé
-					//	Gizmos.color = Color.black;
-					else //si ce n'est qu'une tuile marchable qui n'est pas dans le chemin trouvé
+						else if (chemin != null && chemin.Contains (n)) //si le noeud fait partie du chemin trouvé
+						Gizmos.color = Color.black;
+						else //si ce n'est qu'une tuile marchable qui n'est pas dans le chemin trouvé
 						Gizmos.color = Color.white;
-				}
-				else //si c'est un obstacle
+					} else //si c'est un obstacle
 					Gizmos.color = Color.red;
-				//on dessine un cube à la position de notre noeud et de la bonne dimension.
-				Gizmos.DrawCube(n.position, Vector3.one * (diametreNoeud - .1f));
+					//on dessine un cube à la position de notre noeud et de la bonne dimension.
+					Gizmos.DrawCube (n.position, Vector3.one * (diametreNoeud - .1f));
+				}
 			}
 		}
 	}
