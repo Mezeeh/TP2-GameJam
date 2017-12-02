@@ -6,7 +6,8 @@ public class OptionMenu : MonoBehaviour {
 
 	public GameObject menuPrincipal,
 				menuCommentJouer,
-				menuTouches;
+				menuTouches,
+				menus;
 
 	public void quitter()
 	{
@@ -31,6 +32,7 @@ public class OptionMenu : MonoBehaviour {
 		menuPrincipal.SetActive (false);
 		menuCommentJouer.SetActive (false);
 		menuTouches.SetActive (false);
+		menus.GetComponent<AudioSource> ().Stop ();
 	}
 
 	public void retour()
