@@ -8,6 +8,7 @@ public class Collision : MonoBehaviour {
 	Vector3 joueurControleStartLocalPos = Vector3.zero;
 	Vector3 joueurPalettePos;
 	float joueurPaletteProgression;
+	public float vitesseTir = 500.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -19,8 +20,14 @@ public class Collision : MonoBehaviour {
 		if(joueurControle)
 		{
 			joueurPaletteProgression += Time.deltaTime / 0.5f;
-			Debug.Log (joueurPaletteProgression);
 			transform.localPosition = Vector3.Lerp(joueurControleStartLocalPos, joueurPalettePos, joueurPaletteProgression);
+
+			if(Input.GetKeyUp(KeyCode.Space))
+			{
+				this.transform.parent = null;
+				joueurControle = false;
+				tirer ();
+			}
 		}
 	}
 
@@ -34,5 +41,10 @@ public class Collision : MonoBehaviour {
 			joueurControleStartLocalPos = transform.localPosition;
 			joueurPalettePos = transform.parent.Find ("Palette").transform.localPosition;
 		}
+	}
+
+	void tirer()
+	{
+		this.gameObject.GetComponent<Rigidbody2D> ().AddForce (Vector2.right * vitesseTir);
 	}
 }
