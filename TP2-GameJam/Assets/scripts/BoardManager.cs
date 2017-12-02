@@ -21,8 +21,8 @@ public class BoardManager : MonoBehaviour {
         }
     }
 
-    public int columns = 4;
-    public int rows = 8;
+    public int columns;
+    public int rows;
     public Count coneCount = new Count(3, 9);
 
     public Count adversairesCount = new Count(1, 4);
@@ -39,11 +39,12 @@ public class BoardManager : MonoBehaviour {
 
     void InitialiseList()
     {
+        
         gridPositions.Clear();
 
-        for(int x = 1; x < columns -1; x++)
+        for(float x = -2.73f; x < columns - 1; x++)
         {
-            for(int y = 1; y < rows - 1; y++)
+            for(float y = -1.86f; y < rows - 1; y++)
             {
                 gridPositions.Add(new Vector3(x, y, 0f));
             }
@@ -52,8 +53,8 @@ public class BoardManager : MonoBehaviour {
 
     void BoardSetup()
     {
-        boardHolder = new GameObject("Board").transform;        
-        GameObject instance = Instantiate(terrain, new Vector3(0, 0, 0f), Quaternion.identity) as GameObject;
+        boardHolder = new GameObject("Board").transform;
+        GameObject instance = Instantiate(terrain, new Vector3(0, 0, 0f), Quaternion.identity);
         instance.transform.SetParent(boardHolder);
 
         /*for(int x = -1; x < columns + 1; x++)
