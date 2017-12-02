@@ -43,9 +43,9 @@ public class ClickToMove : MonoBehaviour {
 			enMouvement = false;
 
 
-        /*float AngleRad = Mathf.Atan2(positionCible.y - this.transform.position.y, positionCible.x - this.transform.position.x);
+        float AngleRad = Mathf.Atan2(positionCible.y - this.transform.position.y, positionCible.x - this.transform.position.x);
         float AngleDeg = (180 / Mathf.PI) * AngleRad;
-        this.transform.rotation = Quaternion.Euler(0, 0, AngleDeg);*/
+        this.transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
 
     }
 
