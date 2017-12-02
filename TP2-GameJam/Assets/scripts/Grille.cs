@@ -16,7 +16,7 @@ using System.Collections.Generic;
 /// 
 public class Grille : MonoBehaviour 
 {
-	private Noeud[,] grille; //notre monde sera une grille de noeud
+	public Noeud[,] grille; //notre monde sera une grille de noeud
 	public Vector2 dimensionMonde;
 	public float rayonNoeud; //le rayon d'une tuile
 	public LayerMask impossibleMarcherMasque; //layer où se trouve les cubes représentant les obstacles
@@ -120,7 +120,7 @@ public class Grille : MonoBehaviour
 		GameObject depart = GameObject.Find ("Player"); //trouve le joueur qui est le point de départ
 		GameObject arrivee = GameObject.Find ("arrivee"); //trouve l'arrivée
 		//on demande à la classe Pathfinding de trouver le chemin
-		pathFinding.trouverCheminGizmos (depart.transform.position, arrivee.transform.position, this);
+	//	pathFinding.trouverCheminGizmos (depart.transform.position, arrivee.transform.position, this);
 
 		if (grille != null) //si la grille a bel et bien été créé
 		{
@@ -132,8 +132,8 @@ public class Grille : MonoBehaviour
 				{
 					if (noeudPlayer == n) //si c'est le joueur
 						Gizmos.color = Color.cyan;
-					else if (chemin != null && chemin.Contains(n)) //si le noeud fait partie du chemin trouvé
-						Gizmos.color = Color.black;
+					//else if (chemin != null && chemin.Contains(n)) //si le noeud fait partie du chemin trouvé
+					//	Gizmos.color = Color.black;
 					else //si ce n'est qu'une tuile marchable qui n'est pas dans le chemin trouvé
 						Gizmos.color = Color.white;
 				}

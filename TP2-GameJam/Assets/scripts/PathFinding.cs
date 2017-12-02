@@ -7,45 +7,44 @@ using System.Collections.Generic; //pour l'utilisation des listes
 public class PathFinding : MonoBehaviour 
 {
 	Grille grille;//notre objet grille qui va contenir notre grille de tuiles représentant notre monde
-	public Transform depart;//références aux gameObjects rajoutés directement en drag n drop dans l'éditeur de Unity.
-	public Transform arrivee;
-    public List<Noeud> chemin;
 
 	void Awake()
 	{//pour que ça marche, il faut que le script Grille soit rattaché au même GameObject que le script PathFinding
 		grille = GetComponent<Grille> ();
+
 	}
 
-	void Update()
-	{
-		trouverChemin (depart.position, arrivee.position);
-	}
+
 	/// <summary>
 	/// Méthode appelée depuis le OnDrawGizmos de la classe Grille 
 	/// </summary>
 	/// <param name="startPos">Correspond à la tuile de départ</param>
 	/// <param name="targetPos">Correspond à la tuile d'arrivée</param>
 	/// <param name="grille">notre objet grille qui va contenir la grille de tuiles</param>
-	public void trouverCheminGizmos(Vector3 startPos, Vector3 targetPos, Grille grille)
+	/*public void trouverCheminGizmos(Vector3 startPos, Vector3 targetPos, Grille grille)
 	{
 		this.grille = grille;
 
 		trouverChemin (startPos, targetPos);
-	}
+	}*/
 	/// <summary>
 	/// C'est dans cette méthode qu'est implanté notre algorithme A* 
 	/// </summary>
 	/// <param name="startPos">la position de notre tuile de départ</param>
 	/// <param name="targetPos">la position de notre tuile d'arrivée</param>
-	public void trouverChemin(Vector3 startPos, Vector3 targetPos)
+
+	public void trouverChemin(Noeud startPos, Noeud targetPos)
 	{//on trouve les noeuds associés à nos positions
-		Noeud noeudDepart = grille.noeudVsPoint (startPos);
-		Noeud noeudArrivee = grille.noeudVsPoint (targetPos);
+		grille = GetComponent<Grille> ();
+		Noeud noeudDepart = startPos;
+		Noeud noeudArrivee = targetPos;
 
 		List<Noeud> openList = new List<Noeud> ();
 		List<Noeud> closedList = new List<Noeud> ();
 
 		openList.Add (noeudDepart);
+
+	
 
 		while (openList.Count > 0) //tant qu'il nous reste des noeuds à évaluer
 		{
@@ -59,6 +58,7 @@ public class PathFinding : MonoBehaviour
 				if (fCost < noeudCourant.fCost() || (fCost == noeudCourant.fCost() && hCost < noeudCourant.hCost))
 					noeudCourant = openList[i];
 			}
+
 
 			openList.Remove (noeudCourant);//retire le noeud de la liste a évaluer
 			closedList.Add (noeudCourant);//on le rajoute dans la liste de ceux déjà évalué
@@ -82,6 +82,8 @@ public class PathFinding : MonoBehaviour
 					//si notre nouveau calcul arrive à un coût plus bas, ou si c'est la première que l'on calcul son coût
 					if (nouveauGCost < voisin.gCost || !openList.Contains (voisin)) 
 					{//attribuer les coût à notre voisin
+
+				
 						voisin.gCost = nouveauGCost;
 						voisin.hCost = getDistance (voisin, noeudArrivee);
 						//conserver en mémoire qui est son parent
@@ -93,6 +95,7 @@ public class PathFinding : MonoBehaviour
 				}				
 			}
 		}
+	
 	} 
 	/// <summary>
 	/// méthode qui va remonter la liste de parent pour déterminer le chemin
@@ -101,14 +104,16 @@ public class PathFinding : MonoBehaviour
 	/// <param name="arrivee">Arrivee.</param>
 	private void tracerChemin(Noeud depart, Noeud arrivee)
 	{
-		chemin = new List<Noeud> ();
+		List<Noeud> chemin = new List<Noeud> ();
 		Noeud noeudCourant = arrivee;//on place notre noeud courant sur la tuile d'arrivée
+
 
 		while (noeudCourant.parent != depart) //on remonte la chaine de parent jusqu'à la tuile de départ
 		{
 			chemin.Add (noeudCourant);
 			noeudCourant = noeudCourant.parent;
 		}
+
 
 		chemin.Add (noeudCourant);//on oublie pas d'ajouter la tuile de départ dans notre chemin
 

@@ -7,19 +7,22 @@ public class ClickToMove : MonoBehaviour {
     
     public float vitesse = 5;
     
-    private Vector3 positionCible;
+    public Vector3 positionCible;
     private bool enMouvement;
 	private PathFinding pathfinder;
 	private int i;
+	private Noeud noeudDepart, noeudArriver;
+	private Grille grille;
     
 
 	void Start () {
         
         
 		positionCible = transform.position;
+		grille = GameObject.Find("A*").GetComponent<Grille>();
         
 		enMouvement = false;
-		pathfinder = new PathFinding ();
+		pathfinder = GameObject.Find ("A*").GetComponent<PathFinding> ();
 
 	}
 	
@@ -36,25 +39,34 @@ public class ClickToMove : MonoBehaviour {
 			else if(enMouvement)//cancel le movement deja en cours
 				positionCible = transform.position;
                 
-
             positionCible = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 			positionCible.z = transform.position.z;
-			pathfinder.trouverChemin (transform.position, positionCible);
+
+			noeudDepart = grille.noeudVsPoint (transform.position);
+			noeudArriver = grille.noeudVsPoint (positionCible);
+		
+
+			pathfinder.trouverChemin (noeudDepart, noeudArriver);
 			i = 0;
 
 		}
 		if (enMouvement) {
-			transform.position = Vector3.MoveTowards (transform.position, pathfinder.chemin [i].position, vitesse * Time.deltaTime);
+			Debug.Log (grille.chemin [i]);
+			transform.position = Vector3.MoveTowards (transform.position, grille.chemin[i].position , vitesse * Time.deltaTime);
+			Debug.Log (i);
+
 			i++;
+
+
 		}
 		if (positionCible == transform.position) 
 			enMouvement = false;
 
 
-        float AngleRad = Mathf.Atan2(positionCible.y - this.transform.position.y, positionCible.x - this.transform.position.x);
+      /*  float AngleRad = Mathf.Atan2(positionCible.y - this.transform.position.y, positionCible.x - this.transform.position.x);
         float AngleDeg = (180 / Mathf.PI) * AngleRad;
         this.transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
-
+*/
     }
 
     
