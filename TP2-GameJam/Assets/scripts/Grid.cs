@@ -6,8 +6,8 @@ using UnityEditor; //package qui va nous permettre de modifier l'éditeur de uni
 
 public class Grid : MonoBehaviour 
 {
-	private float width = 0.5f; //largeur d'une cellule dans ma grille
-	private float height = 0.5f; //hauteur d'une cellule dans la grille
+	public float width = 0.4f; //largeur d'une cellule dans ma grille
+	public float height = 0.4f; //hauteur d'une cellule dans la grille
 	public Color color = Color.yellow;  //couleur de la grille
 	// Use this for initialization
 
