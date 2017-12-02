@@ -54,8 +54,6 @@ public class ClickToMove : MonoBehaviour {
 			Debug.Log (grille.chemin [i]);
 			transform.position = Vector3.MoveTowards (transform.position, grille.chemin[i].position , vitesse * Time.deltaTime);
 
-			GameObject OUI = new GameObject();
-			OUI.transform.position = new Vector2 (this.transform.position.x, this.transform.position.y);
 			Debug.Log (i);
 
 			i++;
