@@ -13,7 +13,7 @@ public class ClickToMove : MonoBehaviour {
 	private int i;
 	private Noeud noeudDepart, noeudArriver;
 	private Grille grille;
-    
+	public Animator animateur;
 
 	void Start () {
         
@@ -53,6 +53,9 @@ public class ClickToMove : MonoBehaviour {
 		if (enMouvement) {
 			Debug.Log (grille.chemin [i]);
 			transform.position = Vector3.MoveTowards (transform.position, grille.chemin[i].position , vitesse * Time.deltaTime);
+
+			GameObject OUI = new GameObject();
+			OUI.transform.position = new Vector2 (this.transform.position.x, this.transform.position.y);
 			Debug.Log (i);
 
 			i++;
@@ -67,6 +70,8 @@ public class ClickToMove : MonoBehaviour {
         float AngleDeg = (180 / Mathf.PI) * AngleRad;
         this.transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
 */
+
+		animateur.SetBool ("deplacement", enMouvement);
     }
 
     

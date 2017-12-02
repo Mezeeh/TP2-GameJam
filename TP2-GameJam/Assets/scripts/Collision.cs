@@ -45,6 +45,8 @@ public class Collision : MonoBehaviour {
 
 	void tirer()
 	{
+		//GameObject NON = ClickToMove.FindObjectOfType<GameObject> (OUI);
+
 		this.gameObject.GetComponent<Rigidbody2D> ().AddForce (Vector2.right * vitesseTir);
 	}
 }
