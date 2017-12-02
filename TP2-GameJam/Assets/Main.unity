@@ -417,7 +417,7 @@ GameObject:
   - component: {fileID: 1839748281}
   - component: {fileID: 1839748280}
   m_Layer: 0
-  m_Name: team1-idle
+  m_Name: adversaire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
