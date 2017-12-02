@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: e33ef28ec3419194aa4c8e1ec7365d5e
+timeCreated: 1512232594
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: EA Font v1.5 by Ghettoshark
+  fontNames:
+  - EA Font v1.5 by Ghettoshark
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
