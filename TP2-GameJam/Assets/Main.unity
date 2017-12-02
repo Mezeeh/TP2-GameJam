@@ -120,6 +120,10 @@ GameObject:
   - component: {fileID: 38323933}
   - component: {fileID: 38323932}
   - component: {fileID: 38323934}
+<<<<<<< HEAD
+=======
+  - component: {fileID: 38323935}
+>>>>>>> bc3fc610da8796069a152ca8fbb527bd057aed41
   m_Layer: 0
   m_Name: hero
   m_TagString: Untagged
@@ -237,7 +241,28 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+<<<<<<< HEAD
 --- !u!114 &38323934
+=======
+--- !u!95 &38323934
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 38323929}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7ca6dde5c0470d04f8ba205ce43fe190, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 1
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &38323935
+>>>>>>> bc3fc610da8796069a152ca8fbb527bd057aed41
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -248,7 +273,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f60d5aaafbe0794da008272ff0fd12d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   vitesse: 10
+=======
+  cible: {fileID: 919137569}
+  vitesse: 3
+  startTime: 0
+  amorti: 10
+>>>>>>> bc3fc610da8796069a152ca8fbb527bd057aed41
 --- !u!1 &43755265
 GameObject:
   m_ObjectHideFlags: 0
@@ -1125,13 +1157,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+--- !u!1 &919137569
+=======
 --- !u!1 &671879860
+>>>>>>> 96c963283220bb45d1e98eb3c7ca83bf9720d011
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
+<<<<<<< HEAD
+  - component: {fileID: 919137570}
+  m_Layer: 0
+  m_Name: Cible
+  m_TagString: Untagged
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &919137570
+=======
   - component: {fileID: 671879861}
   - component: {fileID: 671879864}
   - component: {fileID: 671879863}
@@ -1460,17 +1507,30 @@ MonoBehaviour:
   m_sendNavigationEvents: 1
   m_DragThreshold: 5
 --- !u!4 &1007413052
+>>>>>>> 96c963283220bb45d1e98eb3c7ca83bf9720d011
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
+  m_GameObject: {fileID: 919137569}
+=======
   m_GameObject: {fileID: 1007413049}
+>>>>>>> 96c963283220bb45d1e98eb3c7ca83bf9720d011
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+<<<<<<< HEAD
   m_RootOrder: 5
+=======
+<<<<<<< HEAD
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+  m_RootOrder: 6
+>>>>>>> bc3fc610da8796069a152ca8fbb527bd057aed41
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1129087598
 GameObject:
@@ -1954,6 +2014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a6887a7b3a6c58489d7109eea985f88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   mainMenu: {fileID: 2051494884}
   menuCommentJouer: {fileID: 329960037}
   menuTouches: {fileID: 2114502115}
@@ -2188,6 +2249,9 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+=======
+>>>>>>> 96c963283220bb45d1e98eb3c7ca83bf9720d011
+>>>>>>> bc3fc610da8796069a152ca8fbb527bd057aed41
 --- !u!1 &1839748279
 GameObject:
   m_ObjectHideFlags: 0
