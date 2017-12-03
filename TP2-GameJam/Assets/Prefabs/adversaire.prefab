@@ -23,8 +23,8 @@ GameObject:
   - component: {fileID: 60852070770943304}
   - component: {fileID: 50513753453294214}
   m_Layer: 0
-  m_Name: Adversaire
-  m_TagString: Untagged
+  m_Name: adversaire
+  m_TagString: Adversaire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
