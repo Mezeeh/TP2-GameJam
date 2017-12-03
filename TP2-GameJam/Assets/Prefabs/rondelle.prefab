@@ -173,6 +173,7 @@ MonoBehaviour:
   vitesseTir: 500
   pickUpRondelle: {fileID: 8300000, guid: 8c5ba13977cd08e41befa52dc9dc2926, type: 3}
   tirRondelle: {fileID: 8300000, guid: 18b04ed2b5ff15648932842a369a0155, type: 3}
+  sonBut: {fileID: 8300000, guid: 972762ddeecf8304bb21f1db1583ba5c, type: 3}
 --- !u!212 &212338008182990612
 SpriteRenderer:
   m_ObjectHideFlags: 1

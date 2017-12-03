@@ -12,6 +12,7 @@ public class Collision : MonoBehaviour {
 	public float vitesseTir = 1f;
 	public AudioClip pickUpRondelle;
 	public AudioClip tirRondelle;
+	public AudioClip sonBut;
 
 	// Use this for initialization
 	void Start () {
@@ -27,14 +28,13 @@ public class Collision : MonoBehaviour {
 
 			if(Input.GetKeyUp(KeyCode.Space))
 			{
-				this.transform.parent = null;
-				joueurControle = false;
+				
 				tirer ();
 			}
 		}
 	}
 
-	void OnCollisionEnter2D(Collision2D coll)
+	IEnumerator OnCollisionEnter2D(Collision2D coll)
 	{
 		if(!joueurControle && coll.transform.tag == "Hero")
 		{
@@ -51,15 +51,19 @@ public class Collision : MonoBehaviour {
         if(coll.transform.tag == "LigneBut")
         {
             Debug.Log("BUUUUUUUUUUUUUUUUUT");
+			AudioSource source = GetComponent<AudioSource> ();
+			source.PlayOneShot (sonBut, 1f);
+
+			yield return new WaitForSeconds (sonBut.length);
+
             GameManagerUn.instance.pointsJoueur++;
             SceneManager.LoadScene("Main");
-            
-            
         }
 	}
 
 	void tirer()
 	{
+		/*
         Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         
         Vector3 myPos = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y + 1,0);
@@ -68,9 +72,15 @@ public class Collision : MonoBehaviour {
         Quaternion rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
         this.gameObject.transform.rotation = rotation;
         this.gameObject.GetComponent<Rigidbody2D>().AddForce(direction * vitesseTir);
+		*/
 
 
+		Vector3 direction = this.transform.parent.transform.right;
+
+		this.GetComponent<Rigidbody2D> ().AddForce (direction * 100f);
         
+		this.transform.parent = null;
+		joueurControle = false;
 
 		AudioSource source = GetComponent<AudioSource> ();
 

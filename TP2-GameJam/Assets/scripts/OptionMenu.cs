@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class OptionMenu : MonoBehaviour {
 
 	public GameObject menuPrincipal,
-				menuCommentJouer,
-				menuTouches,
-				menus;
+		menuCommentJouer,
+		menuTouches,
+		menus,
+		menuFinDePartie;
 
 	public void quitter()
 	{
@@ -29,10 +31,7 @@ public class OptionMenu : MonoBehaviour {
 
 	public void jouer()
 	{
-		menuPrincipal.SetActive (false);
-		menuCommentJouer.SetActive (false);
-		menuTouches.SetActive (false);
-		menus.GetComponent<AudioSource> ().Stop ();
+		SceneManager.LoadScene ("Main");
 	}
 
 	public void retour()
@@ -40,5 +39,11 @@ public class OptionMenu : MonoBehaviour {
 		menuPrincipal.SetActive (true);
 		menuCommentJouer.SetActive (false);
 		menuTouches.SetActive (false);
+	}
+
+	public void recommencer()
+	{
+		Debug.Log ("test");
+		SceneManager.LoadScene ("Main");
 	}
 }
