@@ -31,7 +31,7 @@ public class BoardManager : MonoBehaviour {
     public GameObject cone;
     public GameObject adversaires;
     GameObject cible;
-    Vector3 positionCible;
+    public Vector3 positionCible;
     //public GameObject[] floorTitles;
     //public GameObject[] murDeCone;
     //public GameObject[] outerWallTitles;

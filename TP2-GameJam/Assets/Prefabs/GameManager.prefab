@@ -75,9 +75,8 @@ MonoBehaviour:
   adversairesCount:
     maximum: 3
     minimum: 2
-  terrain: {fileID: 1243517461546250, guid: 65582dd5e3c86a443bad86692aaaa3df, type: 2}
+  terrain: {fileID: 1562166006672638, guid: 89b92b9698a338c4fa5e8cfa2f193609, type: 2}
   but: {fileID: 1699641706155154, guid: 2602f8a07bb89d341b0b991f086201a1, type: 2}
-  cone:
-  - {fileID: 1608469313557468, guid: f4b3dcf4b2ca2854b9c37c03d22cfd9a, type: 2}
-  adversaires:
-  - {fileID: 1594277527963816, guid: 0da3256377aed1847b8c915909673f78, type: 2}
+  cone: {fileID: 1608469313557468, guid: f4b3dcf4b2ca2854b9c37c03d22cfd9a, type: 2}
+  adversaires: {fileID: 1594277527963816, guid: 0da3256377aed1847b8c915909673f78,
+    type: 2}

@@ -11,6 +11,7 @@ public class GameManagerUn : MonoBehaviour
     public static GameManagerUn instance = null;
     public BoardManager boardScript;
     private bool doingSetup = true;                         //Boolean to check if we're setting up board, prevent Player from moving during setup.
+    public Vector3 positionCible;
 
     private int level = 1;
     // Use this for initialization
@@ -28,6 +29,7 @@ public class GameManagerUn : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         boardScript = GetComponent<BoardManager>();
         InitGame();
+        positionCible = boardScript.positionCible;
 
 
     }
