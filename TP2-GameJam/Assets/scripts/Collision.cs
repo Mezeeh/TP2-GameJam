@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Collision : MonoBehaviour {
 
@@ -9,8 +10,6 @@ public class Collision : MonoBehaviour {
 	Vector3 joueurPalettePos;
 	float joueurPaletteProgression;
 	public float vitesseTir = 500.0f;
-	public AudioClip pickUp,
-					tir;
 
 	// Use this for initialization
 	void Start () {
@@ -24,7 +23,7 @@ public class Collision : MonoBehaviour {
 			joueurPaletteProgression += Time.deltaTime / 0.5f;
 			transform.localPosition = Vector3.Lerp(joueurControleStartLocalPos, joueurPalettePos, joueurPaletteProgression);
 
-			if(Input.GetKeyDown(KeyCode.Space))
+			if(Input.GetKeyUp(KeyCode.Space))
 			{
 				this.transform.parent = null;
 				joueurControle = false;
@@ -39,23 +38,24 @@ public class Collision : MonoBehaviour {
 		{
 			joueurPaletteProgression = 0;
 			this.transform.parent = coll.transform;
-
-			AudioSource source = GetComponent<AudioSource> ();
-			source.PlayOneShot (pickUp, 1f);
-
 			joueurControle = true;
 			joueurControleStartLocalPos = transform.localPosition;
 			joueurPalettePos = transform.parent.Find ("Palette").transform.localPosition;
 		}
+
+        if(coll.transform.tag == "LigneBut")
+        {
+            Debug.Log("BUUUUUUUUUUUUUUUUUT");
+            GameManagerUn.instance.pointsJoueur++;
+            SceneManager.LoadScene("Main");
+            
+            
+        }
 	}
 
 	void tirer()
 	{
 		//GameObject NON = ClickToMove.FindObjectOfType<GameObject> (OUI);
-
-		AudioSource source = GetComponent<AudioSource> ();
-
-		source.PlayOneShot (tir, 1f);
 
 		this.gameObject.GetComponent<Rigidbody2D> ().AddForce (Vector2.right * vitesseTir);
 	}

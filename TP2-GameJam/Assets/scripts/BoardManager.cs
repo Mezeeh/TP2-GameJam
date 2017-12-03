@@ -23,9 +23,9 @@ public class BoardManager : MonoBehaviour {
 
     public int columns;
     public int rows;
-    public Count coneCount = new Count(3, 9);
+    public Count coneCount = new Count(3, 6);
 
-    public Count adversairesCount = new Count(1, 4);
+    public Count adversairesCount = new Count(2, 4);
     public GameObject terrain;
     public GameObject but;
     public GameObject[] cone;
