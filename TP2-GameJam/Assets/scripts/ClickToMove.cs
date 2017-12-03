@@ -62,12 +62,15 @@ public class ClickToMove : MonoBehaviour {
 			else
 				transform.position = Vector3.MoveTowards (transform.position, target, vitesse * Time.deltaTime);
 		}
-
-
-
-
-		if (positionCible == transform.position) 
+		if (grille.chemin == null)
 			enMouvement = false;
+		
+		else if(grille.chemin.Count == pointActuel)
+			enMouvement = false;
+
+
+
+
 
 
         float AngleRad = Mathf.Atan2(positionCible.y - this.transform.position.y, positionCible.x - this.transform.position.x);
