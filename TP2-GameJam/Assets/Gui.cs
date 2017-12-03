@@ -24,7 +24,8 @@ public class Gui : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		
+		if (GestionLevel.buts != null)
+			textPoints.text = GestionLevel.buts.ToString ();
 	}
 
 	public void updateVies(string textVies)

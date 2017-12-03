@@ -43,6 +43,9 @@ public class OptionMenu : MonoBehaviour {
 
 	public void recommencer()
 	{
+		GestionLevel.vies = 3;
+		GestionLevel.buts = 0;
+		GestionLevel.level = 1;
 		SceneManager.LoadScene (1);
 	}
 }

@@ -20,9 +20,9 @@ public class Plaquage : MonoBehaviour {
 	{
 		if(coll.transform.tag == "Hero")
 		{
-			Debug.Log ("Toucher");
 			AudioSource source = GetComponent<AudioSource> ();
 			source.PlayOneShot (plaquage, 0.2f);
+			GestionLevel.vies--;
 		}
 	}
 }

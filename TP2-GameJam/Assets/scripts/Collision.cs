@@ -16,7 +16,7 @@ public class Collision : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		Debug.Log (GestionLevel.buts);
 	}
 	
 	// Update is called once per frame
@@ -56,6 +56,8 @@ public class Collision : MonoBehaviour {
 
 			yield return new WaitForSeconds (sonBut.length);
 
+			GestionLevel.buts += 3;
+			GestionLevel.level++;
             GameManagerUn.instance.pointsJoueur++;
             SceneManager.LoadScene("Main");
         }
