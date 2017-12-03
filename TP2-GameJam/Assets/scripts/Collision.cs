@@ -10,6 +10,8 @@ public class Collision : MonoBehaviour {
 	Vector3 joueurPalettePos;
 	float joueurPaletteProgression;
 	public float vitesseTir = 500.0f;
+	public AudioClip pickUpRondelle;
+	public AudioClip tirRondelle;
 
 	// Use this for initialization
 	void Start () {
@@ -41,6 +43,9 @@ public class Collision : MonoBehaviour {
 			joueurControle = true;
 			joueurControleStartLocalPos = transform.localPosition;
 			joueurPalettePos = transform.parent.Find ("Palette").transform.localPosition;
+
+			AudioSource source = GetComponent<AudioSource> ();
+			source.PlayOneShot (pickUpRondelle, 1f);
 		}
 
         if(coll.transform.tag == "LigneBut")
@@ -58,5 +63,9 @@ public class Collision : MonoBehaviour {
 		//GameObject NON = ClickToMove.FindObjectOfType<GameObject> (OUI);
 
 		this.gameObject.GetComponent<Rigidbody2D> ().AddForce (Vector2.right * vitesseTir);
+
+		AudioSource source = GetComponent<AudioSource> ();
+
+		source.PlayOneShot (tirRondelle, 1f);
 	}
 }
