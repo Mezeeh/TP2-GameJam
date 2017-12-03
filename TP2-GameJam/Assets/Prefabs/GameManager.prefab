@@ -52,6 +52,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4039a0e82e9a1344cadece13a8fff7bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelStartDelay: 2
+  vie: 3
+  pointsJoueur: 0
   boardScript: {fileID: 114911891605172000}
 --- !u!114 &114911891605172000
 MonoBehaviour:
@@ -70,7 +73,7 @@ MonoBehaviour:
     maximum: 3
     minimum: 3
   adversairesCount:
-    maximum: 4
+    maximum: 3
     minimum: 2
   terrain: {fileID: 1243517461546250, guid: 65582dd5e3c86a443bad86692aaaa3df, type: 2}
   but: {fileID: 1699641706155154, guid: 2602f8a07bb89d341b0b991f086201a1, type: 2}
