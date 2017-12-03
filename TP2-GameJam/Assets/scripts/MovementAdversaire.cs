@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovementAdversaire : MonoBehaviour {
 	
-	public float vitesse = 5;
+	public float vitesse = 3;
 	private PathFinding pathfinder;
 	private Grille grille;
 	private Vector3 positionCible;
@@ -15,13 +15,12 @@ public class MovementAdversaire : MonoBehaviour {
 	private bool reverse;
 	private int derniereTuile;
 
+
 	// Use this for initialization
 	void Start () {
 		aggresser = false;
 
-		pathfinder = GameObject.Find ("A*").GetComponent<PathFinding> ();
-		grille = GameObject.Find ("A*").GetComponent<Grille> ();
-		manager = GameObject.Find ("gameManager").GetComponent<GameManagerUn> ();
+		manager = GameObject.Find ("GameManager(Clone)").GetComponent<GameManagerUn> ();
 		reverse = false;
 		Debug.Log (manager.positionCible);
 		SetRoute ();
