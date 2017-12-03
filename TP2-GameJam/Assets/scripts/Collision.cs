@@ -59,7 +59,7 @@ public class Collision : MonoBehaviour {
 			GestionLevel.buts += 3;
 			GestionLevel.level++;
             GameManagerUn.instance.pointsJoueur++;
-            SceneManager.LoadScene("Main");
+            SceneManager.LoadScene(0);
         }
 	}
 

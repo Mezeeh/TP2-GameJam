@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 82195044000326240}
   - component: {fileID: 60927371499210046}
   m_Layer: 0
-  m_Name: adversaire 1
+  m_Name: adversaire
   m_TagString: Adversaire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
