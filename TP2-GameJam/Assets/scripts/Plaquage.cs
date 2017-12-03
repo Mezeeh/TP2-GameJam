@@ -16,13 +16,22 @@ public class Plaquage : MonoBehaviour {
 		
 	}
 
-	void OnCollisionEnter2D(Collision2D coll)
+	IEnumerator OnCollisionEnter2D(Collision2D coll)
 	{
 		if(coll.transform.tag == "Hero")
 		{
-			AudioSource source = GetComponent<AudioSource> ();
-			source.PlayOneShot (plaquage, 0.2f);
-			GestionLevel.vies--;
+			if (GestionLevel.touchable) {
+				AudioSource source = GetComponent<AudioSource> ();
+				source.PlayOneShot (plaquage, 0.2f);
+				GestionLevel.vies--;
+				GestionLevel.touchable = false;
+
+				if(!GestionLevel.marquer)
+				{
+					yield return new WaitForSeconds (2);
+					GestionLevel.touchable = true;
+				}
+			}
 		}
 	}
 }

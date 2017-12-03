@@ -15,9 +15,7 @@ public class Collision : MonoBehaviour {
 	public AudioClip sonBut;
 
 	// Use this for initialization
-	void Start () {
-		Debug.Log (GestionLevel.buts);
-	}
+	void Start () {}
 	
 	// Update is called once per frame
 	void Update () {
@@ -50,16 +48,18 @@ public class Collision : MonoBehaviour {
 
         if(coll.transform.tag == "LigneBut")
         {
-            Debug.Log("BUUUUUUUUUUUUUUUUUT");
 			AudioSource source = GetComponent<AudioSource> ();
 			source.PlayOneShot (sonBut, 1f);
+
+			GestionLevel.touchable = false;
+			GestionLevel.marquer = true;
 
 			yield return new WaitForSeconds (sonBut.length);
 
 			GestionLevel.buts += 3;
 			GestionLevel.level++;
             GameManagerUn.instance.pointsJoueur++;
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
 	}
 

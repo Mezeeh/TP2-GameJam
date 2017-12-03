@@ -9,6 +9,8 @@ public class GestionLevel
 	public static int vies = 3;
 	public static int level = 1;
 	public static bool victorieux = false;
+	public static bool touchable = true;
+	public static bool marquer = false;
 
 	public static void reset()
 	{
@@ -16,5 +18,7 @@ public class GestionLevel
 		vies = 3;
 		level = 1;
 		victorieux = false;
+		touchable = true;
+		marquer = false;
 	}
 }

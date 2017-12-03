@@ -28,7 +28,7 @@ public class GameManagerUn : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
         boardScript = GetComponent<BoardManager>();
-        InitGame();
+        //InitGame();
         positionCible = boardScript.positionCible;
 
 
@@ -57,7 +57,9 @@ public class GameManagerUn : MonoBehaviour
     private void OnLevelWasLoaded(int index)
     {
         level++;
-        InitGame();
+		GestionLevel.touchable = true;
+		GestionLevel.marquer = false;
+		InitGame();
     }
 
    
