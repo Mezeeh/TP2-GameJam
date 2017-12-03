@@ -10,10 +10,11 @@ public class ClickToMove : MonoBehaviour {
     public Vector3 positionCible;
     private bool enMouvement;
 	private PathFinding pathfinder;
-	private int i;
+	private int pointActuel;
 	private Noeud noeudDepart, noeudArriver;
 	private Grille grille;
 	public Animator animateur;
+
 
 	void Start () {
         
@@ -32,34 +33,39 @@ public class ClickToMove : MonoBehaviour {
         
 
         if (Input.GetMouseButton (0)) {
-			if (enMouvement == false)
-				enMouvement = true;
-
-
-			else if(enMouvement)//cancel le movement deja en cours
+			
+			 if(enMouvement)//cancel le movement deja en cours
 				positionCible = transform.position;
                 
             positionCible = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 			positionCible.z = transform.position.z;
 
-			noeudDepart = grille.noeudVsPoint (transform.position);
-			noeudArriver = grille.noeudVsPoint (positionCible);
-		
+			if (transform.position != positionCible) {
+				noeudDepart = grille.noeudVsPoint (transform.position);
+				noeudArriver = grille.noeudVsPoint (positionCible);
 
-			pathfinder.trouverChemin (noeudDepart, noeudArriver);
-			i = 0;
+				if (enMouvement == false)
+					enMouvement = true;
 
+				pathfinder.trouverChemin (noeudDepart, noeudArriver);
+				pointActuel = 0;
+			}
+
+				
 		}
-		if (enMouvement) {
-			Debug.Log (grille.chemin [i]);
-			transform.position = Vector3.MoveTowards (transform.position, grille.chemin[i].position , vitesse * Time.deltaTime);
+		if(enMouvement && pointActuel != grille.chemin.Count){
+			Vector3 target = grille.chemin [pointActuel].position;
+			Vector3 direction = target - transform.position;
 
-			Debug.Log (i);
-
-			i++;
-
-
+			if (direction.magnitude < .1)
+				pointActuel++;
+			else
+				transform.position = Vector3.MoveTowards (transform.position, target, vitesse * Time.deltaTime);
 		}
+
+
+
+
 		if (positionCible == transform.position) 
 			enMouvement = false;
 
