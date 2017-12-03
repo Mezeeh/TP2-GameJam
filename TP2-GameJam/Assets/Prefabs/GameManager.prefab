@@ -70,7 +70,7 @@ MonoBehaviour:
   columns: 5
   rows: 4
   coneCount:
-    maximum: 3
+    maximum: 5
     minimum: 3
   adversairesCount:
     maximum: 3
@@ -80,4 +80,4 @@ MonoBehaviour:
   cone:
   - {fileID: 1608469313557468, guid: f4b3dcf4b2ca2854b9c37c03d22cfd9a, type: 2}
   adversaires:
-  - {fileID: 1904811757847870, guid: 0da3256377aed1847b8c915909673f78, type: 2}
+  - {fileID: 1594277527963816, guid: 0da3256377aed1847b8c915909673f78, type: 2}

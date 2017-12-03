@@ -28,8 +28,10 @@ public class BoardManager : MonoBehaviour {
     public Count adversairesCount = new Count(2, 3);
     public GameObject terrain;
     public GameObject but;
-    public GameObject[] cone;
-    public GameObject[] adversaires;
+    public GameObject cone;
+    public GameObject adversaires;
+    GameObject cible;
+    Vector3 positionCible;
     //public GameObject[] floorTitles;
     //public GameObject[] murDeCone;
     //public GameObject[] outerWallTitles;
@@ -86,15 +88,20 @@ public class BoardManager : MonoBehaviour {
 
     }
 
-    void LayoutObjectAtRandom(GameObject[] tileArray, int minimum, int maximum)
+    void LayoutObjectAtRandom(GameObject objetSpawn, int minimum, int maximum)
     {
         int objectCount = Random.Range(minimum, maximum + 1);
 
         for(int i = 0; i < objectCount; i++)
         {
             Vector3 randomPosition = RandomPosition();
-            GameObject tileChoise = tileArray[Random.Range(0, tileArray.Length)];
-            Instantiate(tileChoise, randomPosition, Quaternion.identity);
+            
+            cible = Instantiate(objetSpawn, randomPosition, Quaternion.identity);
+            if(objetSpawn == adversaires)
+            {
+                positionCible = cible.transform.position;
+            }
+            
         }
     }
 

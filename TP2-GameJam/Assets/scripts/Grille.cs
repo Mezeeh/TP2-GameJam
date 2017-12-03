@@ -117,10 +117,10 @@ public class Grille : MonoBehaviour
 
 			construireGrille ();//construction de la grille
 			//pour que ça marche, il faut que le script PathFinding soit rattaché au même GameObject que le script Grille
-			PathFinding pathFinding = GetComponent<PathFinding> (); 
+			//PathFinding pathFinding = GetComponent<PathFinding> (); 
 
-			GameObject depart = GameObject.Find ("Player"); //trouve le joueur qui est le point de départ
-			GameObject arrivee = GameObject.Find ("arrivee"); //trouve l'arrivée
+			//GameObject depart = GameObject.Find ("Player"); //trouve le joueur qui est le point de départ
+			//GameObject arrivee = GameObject.Find ("arrivee"); //trouve l'arrivée
 			//on demande à la classe Pathfinding de trouver le chemin
 			//	pathFinding.trouverCheminGizmos (depart.transform.position, arrivee.transform.position, this);
 

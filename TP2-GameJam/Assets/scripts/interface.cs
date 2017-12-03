@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Gui : MonoBehaviour {
+public class Interface : MonoBehaviour {
 
 	public Text textVies;
 	public Text textPoints;
 	public Text textLevel;
 
-	public static Gui instance;
+	public static Interface instance;
 
 	// Use this for initialization
 	void Start () 
