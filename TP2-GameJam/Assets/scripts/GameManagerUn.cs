@@ -52,21 +52,13 @@ public class GameManagerUn : MonoBehaviour
         
     }*/
 
-    private void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
+    private void OnLevelWasLoaded(int index)
     {
         level++;
         InitGame();
     }
 
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnLevelFinishedLoading;
-    }
-
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnLevelFinishedLoading;
-    }
+   
 
     public void GameOver()
     {

@@ -9,7 +9,7 @@ public class Collision : MonoBehaviour {
 	Vector3 joueurControleStartLocalPos = Vector3.zero;
 	Vector3 joueurPalettePos;
 	float joueurPaletteProgression;
-	public float vitesseTir = 500.0f;
+	public float vitesseTir = 1f;
 	public AudioClip pickUpRondelle;
 	public AudioClip tirRondelle;
 
@@ -60,9 +60,17 @@ public class Collision : MonoBehaviour {
 
 	void tirer()
 	{
-		//GameObject NON = ClickToMove.FindObjectOfType<GameObject> (OUI);
+        Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        
+        Vector3 myPos = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y + 1,0);
+        Vector3 direction = target - myPos;
+        direction.Normalize();
+        Quaternion rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
+        this.gameObject.transform.rotation = rotation;
+        this.gameObject.GetComponent<Rigidbody2D>().AddForce(direction * vitesseTir);
 
-		this.gameObject.GetComponent<Rigidbody2D> ().AddForce (Vector2.right * vitesseTir);
+
+        
 
 		AudioSource source = GetComponent<AudioSource> ();
 
