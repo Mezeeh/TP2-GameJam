@@ -9,22 +9,25 @@ public class MovementAdversaire : MonoBehaviour {
 	private Grille grille;
 	private Vector3 positionCible;
 	private Noeud noeudDepart, noeudArrivee;
-	private GameManagerUn manager;
+	private BoardManager manager;
 	private bool aggresser; 
 	private int pointActuel;
 	private bool reverse;
 	private int derniereTuile;
+    int numeroAdversaire;
 
 
 	// Use this for initialization
 	void Start () {
+        
 		aggresser = false;
 
 		pathfinder = this.GetComponentInChildren<PathFinding> ();
 		grille = this.GetComponentInChildren<Grille> ();
-		manager = GameObject.Find ("GameManager(Clone)").GetComponent<GameManagerUn> ();
+		manager = GameObject.Find ("GameManager(Clone)").GetComponent<BoardManager> ();
 		reverse = false;
-		Debug.Log (manager.positionCible);
+        numeroAdversaire = manager.nombreAdversaires;
+        Debug.Log (manager.positionCible);
 		SetRoute ();
 
 
@@ -45,7 +48,7 @@ public class MovementAdversaire : MonoBehaviour {
 	}
 	private void SetRoute(){
 		noeudDepart = grille.noeudVsPoint (transform.position);
-		noeudArrivee = grille.noeudVsPoint (manager.positionCible); 
+		noeudArrivee = grille.noeudVsPoint (manager.positionsTabs[numeroAdversaire]); 
 		if (!reverse) {
 			pathfinder.trouverChemin (noeudDepart, noeudArrivee);
 			reverse = true;
