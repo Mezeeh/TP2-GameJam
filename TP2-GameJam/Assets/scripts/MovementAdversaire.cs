@@ -9,6 +9,7 @@ public class MovementAdversaire : MonoBehaviour {
 	private Grille grille;
 	private Vector3 positionCible;
 	private Noeud noeudDepart, noeudArrivee;
+	private BoardManager manager;
 	private bool aggresser; 
 	// Use this for initialization
 	void Start () {
@@ -16,6 +17,7 @@ public class MovementAdversaire : MonoBehaviour {
 
 		pathfinder = GameObject.Find ("A*").GetComponent<PathFinding> ();
 		grille = GameObject.Find ("A*").GetComponent<Grille> ();
+
 
 
 	}
@@ -28,5 +30,7 @@ public class MovementAdversaire : MonoBehaviour {
 	}
 	private void SetRoute(){
 		noeudDepart = grille.noeudVsPoint (transform.position);
+		noeudArrivee = 
+
 	}
 }

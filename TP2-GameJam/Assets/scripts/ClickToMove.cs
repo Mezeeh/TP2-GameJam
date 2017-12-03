@@ -25,12 +25,16 @@ public class ClickToMove : MonoBehaviour {
 		enMouvement = false;
 		pathfinder = GameObject.Find ("A*").GetComponent<PathFinding> ();
 
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-        
+		if (Input.GetMouseButton (1))
+			enMouvement = false;
+		
+		
 
         if (Input.GetMouseButton (0)) {
 			
@@ -43,12 +47,14 @@ public class ClickToMove : MonoBehaviour {
 			if (transform.position != positionCible) {
 				noeudDepart = grille.noeudVsPoint (transform.position);
 				noeudArriver = grille.noeudVsPoint (positionCible);
+				if (noeudArriver.walkable && noeudDepart != noeudArriver) {
 
-				if (enMouvement == false)
-					enMouvement = true;
+					if (enMouvement == false)
+						enMouvement = true;
 
-				pathfinder.trouverChemin (noeudDepart, noeudArriver);
-				pointActuel = 0;
+					pathfinder.trouverChemin (noeudDepart, noeudArriver);
+					pointActuel = 0;
+				}
 			}
 
 				
