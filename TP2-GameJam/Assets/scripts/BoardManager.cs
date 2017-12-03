@@ -20,7 +20,7 @@ public class BoardManager : MonoBehaviour {
             maximum = max;
         }
     }
-
+    public int nombreAdversaires = 0;
     public int columns;
     public int rows;
     public Count coneCount = new Count(3, 5);
@@ -35,7 +35,7 @@ public class BoardManager : MonoBehaviour {
     //public GameObject[] floorTitles;
     //public GameObject[] murDeCone;
     //public GameObject[] outerWallTitles;
-
+    public Vector3[] positionsTabs = new Vector3[4];
     private Transform boardHolder;
     private List<Vector3> gridPositions = new List<Vector3>();
 
@@ -52,6 +52,7 @@ public class BoardManager : MonoBehaviour {
             }
         }
     }
+    
 
     void BoardSetup()
     {
@@ -91,18 +92,26 @@ public class BoardManager : MonoBehaviour {
     void LayoutObjectAtRandom(GameObject objetSpawn, int minimum, int maximum)
     {
         int objectCount = Random.Range(minimum, maximum + 1);
+        
 
-        for(int i = 0; i < objectCount; i++)
+        for (int i = 0; i < objectCount; i++)
         {
             Vector3 randomPosition = RandomPosition();
+            Vector3 randomPosition2 = RandomPosition();
             
             cible = Instantiate(objetSpawn, randomPosition, Quaternion.identity);
-            if(objetSpawn == adversaires)
+            
+            if (objetSpawn == adversaires)
             {
-                positionCible = cible.transform.position;
+                positionsTabs[nombreAdversaires] = randomPosition2;
+                nombreAdversaires++;
+                
             }
             
+
+            
         }
+        
     }
 
     public void SetupScene(int level)
