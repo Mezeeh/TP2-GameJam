@@ -42,6 +42,7 @@ public class Visuel : MonoBehaviour {
 			textLevel.text = GestionLevel.level.ToString();
 			if(GestionLevel.level > 5)
 			{
+				GestionLevel.victorieux = true;
 				SceneManager.LoadScene (2);
 			}
 		}
