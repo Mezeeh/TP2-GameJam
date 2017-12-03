@@ -31,7 +31,7 @@ public class OptionMenu : MonoBehaviour {
 
 	public void jouer()
 	{
-		SceneManager.LoadScene ("Main");
+		SceneManager.LoadScene (1);
 	}
 
 	public void retour()
@@ -43,7 +43,6 @@ public class OptionMenu : MonoBehaviour {
 
 	public void recommencer()
 	{
-		Debug.Log ("test");
-		SceneManager.LoadScene ("Main");
+		SceneManager.LoadScene (1);
 	}
 }
