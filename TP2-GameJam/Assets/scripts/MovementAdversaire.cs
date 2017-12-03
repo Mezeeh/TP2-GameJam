@@ -20,6 +20,8 @@ public class MovementAdversaire : MonoBehaviour {
 	void Start () {
 		aggresser = false;
 
+		pathfinder = this.GetComponentInChildren<PathFinding> ();
+		grille = this.GetComponentInChildren<Grille> ();
 		manager = GameObject.Find ("GameManager(Clone)").GetComponent<GameManagerUn> ();
 		reverse = false;
 		Debug.Log (manager.positionCible);
