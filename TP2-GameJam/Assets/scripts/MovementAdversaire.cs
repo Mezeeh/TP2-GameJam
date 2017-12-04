@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovementAdversaire : MonoBehaviour {
 	
-	public float vitesse = 3;
+	public float vitesse = 1;
 	private PathFinding pathfinder;
 	private Grille grille;
 	private Vector3 positionCible;
@@ -15,10 +15,10 @@ public class MovementAdversaire : MonoBehaviour {
 	private bool reverse;
 	private int derniereTuile;
     int numeroAdversaire;
+    Vector3 positionDepart;
 
-
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         
 		aggresser = false;
 
@@ -29,6 +29,7 @@ public class MovementAdversaire : MonoBehaviour {
         numeroAdversaire = manager.nombreAdversaires;
         Debug.Log (manager.positionCible);
 		SetRoute ();
+        positionDepart = transform.position;
 
 
 
@@ -46,13 +47,18 @@ public class MovementAdversaire : MonoBehaviour {
 
 		
 	}
-	private void SetRoute(){
+	private void SetRoute()
+{
 		noeudDepart = grille.noeudVsPoint (transform.position);
-		noeudArrivee = grille.noeudVsPoint (manager.positionsTabs[numeroAdversaire]); 
-		if (!reverse) {
+        
+		noeudArrivee = grille.noeudVsPoint (manager.positionsTabs[numeroAdversaire -1]); 
+
+		if (!reverse)
+        {
 			pathfinder.trouverChemin (noeudDepart, noeudArrivee);
 			reverse = true;
-		} else {
+		}
+        else {
 			pathfinder.trouverChemin (noeudArrivee, noeudDepart);
 			reverse = false;
 		}
@@ -61,14 +67,18 @@ public class MovementAdversaire : MonoBehaviour {
 
 	}
 
-	private void Deplacement()
-	{
-		Vector3 direction = transform.position - grille.chemin [pointActuel].position;
+    private void Deplacement()
+    {
+        Vector3 direction = -grille.chemin[pointActuel].position - transform.position;
+        Debug.Log(direction);
+        if (transform.position != grille.chemin[pointActuel].position)
+        {
 
-		if (direction.magnitude < .1)
-			pointActuel++;
-		else
-			transform.position = Vector3.MoveTowards (transform.position, grille.chemin [pointActuel].position, vitesse * Time.deltaTime);
-	
+            if (direction.magnitude < .1)
+                pointActuel++;
+            else
+                transform.position = Vector3.MoveTowards(transform.position, grille.chemin[pointActuel].position, vitesse * Time.deltaTime);
+
+        }
 	}
 }
