@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 60572817513504810}
   - component: {fileID: 95726953733847862}
   - component: {fileID: 58847269233507230}
-  - component: {fileID: 114753393838295088}
+  - component: {fileID: 114241513359051556}
   m_Layer: 0
   m_Name: adversaire
   m_TagString: Adversaire
@@ -250,6 +250,20 @@ MonoBehaviour:
     m_Bits: 0
   player: {fileID: 4674637675451254}
   activerGrille: 0
+--- !u!114 &114241513359051556
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1795916656945036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98f1711f7b113cb4d847900069e802a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vitesse: 1
+  positionDepart: {x: 0, y: 0, z: 0}
+  posAvantAttaque: {x: 0, y: 0, z: 0}
 --- !u!114 &114263771625002786
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -262,18 +276,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plaquage: {fileID: 8300000, guid: 069f47889586c35458684de0e618041f, type: 3}
---- !u!114 &114753393838295088
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1795916656945036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98f1711f7b113cb4d847900069e802a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vitesse: 1
 --- !u!212 &212920296920051464
 SpriteRenderer:
   m_ObjectHideFlags: 1
