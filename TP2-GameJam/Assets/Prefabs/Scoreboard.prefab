@@ -37,7 +37,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4930291506043454}
   - component: {fileID: 212708783101616122}
-  - component: {fileID: 114459154808405732}
   m_Layer: 0
   m_Name: Scoreboard
   m_TagString: Untagged
@@ -194,20 +193,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 0
---- !u!114 &114459154808405732
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1164310682323500}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 154ef7f82e2815a48bb7b187fa416ffe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textVies: {fileID: 114188427856456612}
-  textPoints: {fileID: 114213689573080346}
-  textLevel: {fileID: 114472968091086558}
 --- !u!114 &114472968091086558
 MonoBehaviour:
   m_ObjectHideFlags: 1

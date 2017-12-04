@@ -372,7 +372,6 @@ GameObject:
   - component: {fileID: 807536588}
   - component: {fileID: 807536587}
   - component: {fileID: 807536590}
-  - component: {fileID: 807536592}
   - component: {fileID: 807536591}
   m_Layer: 0
   m_Name: Scoreboard
@@ -546,23 +545,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &807536592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 807536586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be02624d33f1faa4eaadbb092f65715f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chansons:
-  - {fileID: 8300000, guid: b21e2615447df0041a067c61637c8c37, type: 3}
-  - {fileID: 8300000, guid: 861eeb9a6054eb34f90125279b325c4a, type: 3}
-  - {fileID: 8300000, guid: 6d0c3b939a827ba4fa417e0ab4df6514, type: 3}
-  - {fileID: 8300000, guid: c5d2cbb1db57e2f4ba3f37b84c772db4, type: 3}
-  - {fileID: 8300000, guid: 8fa57c483dce2ef42a0d6a728ee8f76f, type: 3}
 --- !u!1001 &862124164
 Prefab:
   m_ObjectHideFlags: 0
@@ -747,7 +729,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   player: {fileID: 318245909}
-  activerGrille: 0
+  activerGrille: 1
 --- !u!4 &1359723155
 Transform:
   m_ObjectHideFlags: 0

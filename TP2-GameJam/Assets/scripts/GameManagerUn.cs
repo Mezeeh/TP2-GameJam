@@ -26,7 +26,11 @@ public class GameManagerUn : MonoBehaviour
             Destroy(gameObject);
 
         }
-        DontDestroyOnLoad(gameObject);
+        if(GestionLevel.level < 5)
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+        
         boardScript = GetComponent<BoardManager>();
         //InitGame();
         positionCible = boardScript.positionCible;

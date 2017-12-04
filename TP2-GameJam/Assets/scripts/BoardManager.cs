@@ -20,7 +20,7 @@ public class BoardManager : MonoBehaviour {
             maximum = max;
         }
     }
-    public int nombreAdversaires = 0;
+    public int nombreAdversaires;
     public int columns;
     public int rows;
     public Count coneCount = new Count(3, 5);
@@ -92,7 +92,8 @@ public class BoardManager : MonoBehaviour {
     void LayoutObjectAtRandom(GameObject objetSpawn, int minimum, int maximum)
     {
         int objectCount = Random.Range(minimum, maximum + 1);
-        
+
+        nombreAdversaires = 0;
 
         for (int i = 0; i < objectCount; i++)
         {
@@ -103,7 +104,7 @@ public class BoardManager : MonoBehaviour {
             
             if (objetSpawn == adversaires)
             {
-                positionsTabs[nombreAdversaires] = randomPosition2;
+                positionsTabs[nombreAdversaires+1] = randomPosition2;
                 nombreAdversaires++;
                 
             }
