@@ -14,6 +14,8 @@ public class ClickToMove : MonoBehaviour {
 	private Noeud noeudDepart, noeudArriver;
 	private Grille grille;
 	public Animator animateur;
+	private bool jouerSonDeplacement = false;
+	public AudioClip skating;
 
 
 	void Start () {
@@ -25,7 +27,7 @@ public class ClickToMove : MonoBehaviour {
 		enMouvement = false;
 		pathfinder = GameObject.Find ("A*").GetComponent<PathFinding> ();
 
-
+		StartCoroutine (sonMouvement ());
 	}
 	
 	// Update is called once per frame
@@ -87,6 +89,21 @@ public class ClickToMove : MonoBehaviour {
 		animateur.SetBool ("deplacement", enMouvement);
     }
 
-    
+	IEnumerator sonMouvement()
+	{
+		while(true)
+		{
+			if (enMouvement && !jouerSonDeplacement) 
+			{
+				Debug.Log ("je bouge");
 
+				GetComponent<AudioSource> ().PlayOneShot(skating, 1f);
+				jouerSonDeplacement = true;
+
+				yield return new WaitForSeconds (skating.length);
+				jouerSonDeplacement = false;
+			}
+			yield return null;
+		}
+	}
 }
