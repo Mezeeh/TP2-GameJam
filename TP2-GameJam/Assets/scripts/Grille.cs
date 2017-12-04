@@ -25,7 +25,8 @@ public class Grille : MonoBehaviour
 	public Transform player;
 	public List<Noeud> chemin; //notre chemin déterminé par l,algorithme A*.  Il est public car on va le remplir à partir d'un autre script
 	public bool activerGrille;
-	void Start()
+
+	void Awake()
 	{
 		diametreNoeud = rayonNoeud * 2;
 		dimensionGrilleX = Mathf.RoundToInt(dimensionMonde.x / diametreNoeud);
