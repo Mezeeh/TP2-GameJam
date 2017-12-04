@@ -95,8 +95,6 @@ public class ClickToMove : MonoBehaviour {
 		{
 			if (enMouvement && !jouerSonDeplacement) 
 			{
-				Debug.Log ("je bouge");
-
 				GetComponent<AudioSource> ().PlayOneShot(skating, 1f);
 				jouerSonDeplacement = true;
 
